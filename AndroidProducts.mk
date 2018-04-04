@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2018-2019 The mokeeOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,4 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/mk_sirius.mk
+    $(LOCAL_DIR)/mokee_sirius.mk
+
+COMMON_LUNCH_CHOICES := \
+    mokee_sirius-user \
+    mokee_sirius-userdebug \
+    mokee_sirius-eng
