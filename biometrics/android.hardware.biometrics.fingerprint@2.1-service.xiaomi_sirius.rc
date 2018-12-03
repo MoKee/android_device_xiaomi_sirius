@@ -21,4 +21,4 @@ on post-fs-data
 service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sirius
     class late_start
     user system
-    group system input
+    group system input uhid
