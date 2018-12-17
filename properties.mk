@@ -99,6 +99,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     sdm.debug.disable_inline_rotator=1 \
     sdm.debug.disable_inline_rotator_secure=1
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
+    ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.settings.xml=/vendor/etc/media_profiles_vendor.xml
