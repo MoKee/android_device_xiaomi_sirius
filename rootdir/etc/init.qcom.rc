@@ -83,6 +83,7 @@ on early-boot
     write /sys/kernel/boot_cdsp/boot 1
     write /sys/devices/virtual/npu/msm_npu/boot 1
     write /sys/kernel/boot_slpi/boot 1
+    write /sys/devices/virtual/cvp/cvp/boot 1
 
     # for backward compatibility
     chown system system /persist/sensors
