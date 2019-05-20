@@ -259,9 +259,6 @@ on boot
     # Create vpp directory
     mkdir /mnt/vendor/persist/vpp 0770 media media
 
-    # Create hvdcp_opti directory
-    mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
-
     #Create camera directory
     mkdir /mnt/vendor/persist/camera 0755 system cameraserver
 
@@ -493,7 +490,6 @@ on charger
     write /sys/module/msm_thermal/parameters/enabled "N"
     start vendor.power_off_alarm
     start poweroffm64
-    start vendor.hvdcp_opti
     setprop sys.usb.configfs 1
 
     mount tmpfs tmpfs /data
@@ -729,11 +725,6 @@ service poweroffm64 /vendor/bin/poweroffm64
     class late_start
     oneshot
     seclabel u:r:poweroffm64:s0
-
-service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
-    class main
-    user root
-    group system wakelock
 
 on property:adsp.restart=1
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
