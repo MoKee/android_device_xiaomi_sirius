@@ -266,6 +266,10 @@ on boot
     chmod 0666 /proc/trace_package/package_runtime_disable
     chmod 0666 /proc/trace_package/develop_mode
 
+    # Sensors log dir
+    mkdir /data/vendor/sensors
+    chown system system /data/vendor/sensors
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
