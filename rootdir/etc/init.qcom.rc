@@ -607,7 +607,8 @@ service vendor.sensors.qti /vendor/bin/sensors.qti
 service vendor.pd_mapper /vendor/bin/pd-mapper
     class core
     user system
-    group system
+    group system wakelock
+    capabilities BLOCK_SUSPEND
 
 #Peripheral manager
 service vendor.per_mgr /vendor/bin/pm-service
