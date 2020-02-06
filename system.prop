@@ -381,3 +381,5 @@ ro.df.effect.conflict=1
 sys.haptic.down.weak=3
 sys.haptic.down.normal=8
 sys.haptic.down.strong=18
+
+ro.mk.maintainer=IsaacChen
