@@ -67,8 +67,6 @@ vendor/lib/soundfx/libmisoundfx.so
 vendor/lib/soundfx/libshoebox.so
 
 # Bluetooth - from LA.UM.8.3.r1-06100-sdm845.0
-lib64/libbtconfigstore.so
-lib/libbtconfigstore.so
 product/lib64/com.qualcomm.qti.ant@1.0.so
 product/lib/com.qualcomm.qti.ant@1.0.so
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
@@ -82,7 +80,6 @@ vendor/lib64/btaudio_offload_if.so
 vendor/lib64/libbluetooth_audio_session_qti.so
 vendor/lib64/libbtnv.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
-vendor/lib64/vendor.qti.hardware.btconfigstore@1.0.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib/hw/audio.bluetooth_qti.default.so
@@ -93,7 +90,6 @@ vendor/lib/btaudio_offload_if.so
 vendor/lib/libbluetooth_audio_session_qti.so
 vendor/lib/libbtnv.so
 vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so
-vendor/lib/vendor.qti.hardware.btconfigstore@1.0.so
 vendor/lib/vendor.qti.hardware.fm@1.0.so
 
 # Camera
