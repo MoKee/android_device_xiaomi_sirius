@@ -560,8 +560,7 @@ service vendor.sensors.qti /vendor/bin/sensors.qti
 service vendor.pd_mapper /vendor/bin/pd-mapper
     class core
     user system
-    group system wakelock
-    capabilities BLOCK_SUSPEND
+    group system
 
 #Peripheral manager
 service vendor.per_mgr /vendor/bin/pm-service
@@ -576,12 +575,7 @@ service vendor.per_proxy /vendor/bin/pm-proxy
     group system
     disabled
 
-service spdaemon /vendor/bin/spdaemon
-    class core
-    user system
-    group system
-
-service thermal-engine /system/vendor/bin/thermal-engine  -T
+service thermal-engine /system/vendor/bin/thermal-engine -T
    class main
    user system
    socket thermal-send-client stream 0666 system system
@@ -599,37 +593,6 @@ service adsprpcd_sensorspd /vendor/bin/adsprpcd sensorspd
    class core
    user system
    group system
-
-## imsdatadaemon starts with root and UID will be downgraded to RADIO.
-service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
-    class main
-    user radio
-    socket ims_qmid stream 0660 system radio
-    group radio log diag
-
-# imsdatadaemon starts with root and UID will be downgraded to RADIO.
-service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
-    class main
-    user radio
-    socket ims_datad stream 0660 system radio
-    group radio wifi inet log diag
-    disabled
-
-on property:vendor.ims.QMI_DAEMON_STATUS=1
-    start vendor.imsdatadaemon
-
-service vendor.imsrcsservice /system/vendor/bin/imsrcsd
-    class main
-    user radio
-    group radio diag inet log wakelock
-
-service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
-   class main
-   user radio
-   group radio vendor_qti_diag inet log
-
-on property:vendor.ims.DATA_DAEMON_STATUS=1
-    restart vendor.ims_rtp_daemon
 
 service ppd /vendor/bin/mm-pp-dpps
     class late_start
@@ -656,21 +619,10 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop ppd
 
-#poweroff monitor service
-service poweroffm64 /vendor/bin/poweroffm64
-    class late_start
-    oneshot
-    seclabel u:r:poweroffm64:s0
-
 on property:adsp.restart=1
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
     write /sys/bus/msm_subsys/devices/subsys3/restart_level related
     write /sys/kernel/debug/msm_subsys/adsp restart
-
-service remosaic_daemon /system/vendor/bin/remosaic_daemon
-   class late_start
-   user camera
-   group camera
 
 service nv_mac /vendor/bin/nv_mac
     class main
@@ -764,23 +716,10 @@ service vendor.vppservice /vendor/bin/vppservice
     user media
     group camera
 
-service time_daemon /vendor/bin/time_daemon
-    class main
-    user system
-    group system
-    capabilities SYS_TIME
-
 service seemp_healthd /vendor/bin/seemp_healthd
     class late_start
     user system
     group system
-
-service chre /vendor/bin/chre
-    class late_start
-    user system
-    group system
-    socket chre seqpacket 0660 root system
-    shutdown critical
 
 service vendor.audio-hal-2-0 /vendor/bin/hw/android.hardware.audio@2.0-service
     override
